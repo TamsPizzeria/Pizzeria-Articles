@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-        with:
-          ref: main
 
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
@@ -28,5 +26,3 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: main
-          FOLDER: ./
