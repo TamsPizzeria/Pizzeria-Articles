@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-<code>
-var pdfFilesDirectory = '/uploads/pdf/';
+    <body>
+        <script>
+            var pdfFilesDirectory = './';
 
-// get auto-generated page 
-$.ajax({url: pdfFilesDirectory}).then(function(html) {
-    // create temporary DOM element
-    var document = $(html);
+            // get auto-generated page 
+            $.ajax({url: pdfFilesDirectory}).then(function(html) {
+                // create temporary DOM element
+                var document = $(html);
 
-    // find all links ending with .pdf 
-    document.find('a[href$=.pdf]').each(function() {
-        var pdfName = $(this).text();
-        var pdfUrl = $(this).attr('href');
+                // find all links ending with .pdf 
+                document.find('a[href$=.html]').each(function() {
+                    var pdfName = $(this).text();
+                    var pdfUrl = $(this).attr('href');
 
-        // do what you want here 
-    })
-});
-</code>
+                    // do what you want here 
+                })
+            });0
+        </script>
+    </body>
 </html>
