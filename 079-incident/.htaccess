@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond "%{HTTP_REFERER}" "!tams.pizza"
+RewriteRule ^.*$ - [F]
