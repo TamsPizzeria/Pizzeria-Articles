@@ -1,5 +1,5 @@
 #!/bin/sh
-cd D:\WEBSERVER\htdocs\articles
+cd D:\WEBSERVER2\htdocs\articles
 git stash
 git pull
 sleep 3
