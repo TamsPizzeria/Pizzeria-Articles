@@ -1,132 +1,418 @@
 <html>
-	<head>
-		<title>
-			Tam's Pizzeria
-		</title>
-		<meta charset="UTF-8">
-		<link rel="canonical" href="http://tams.pizza/articles/pizzeria-christmas/">
-        <meta charset="UTF-8">
-        <meta name='title' property="og:title" content="Snowfall at the facility!"/>
-        <meta name='type' property="og:type" content="website" />
-        <meta name='image' property="og:image" content="http://tams.pizza/images/classd_christmas.png" />
-        <meta name='url' property="og:url" content="http://tams.pizza/articles/pizzeria-christmas/" />
-        <meta name='description' property="og:description" content="The staff has brought all their christmas decorations"/>
-		<link rel="stylesheet" href="./../../style.css">
-	</head>
-	<body class ="christmas-page">
-		<div class="wrap">
-			<div class="top">
-				<span>
-					tam's pizzeria
-				</span>
-			</div>
 
-			<div class="path">
-				<a href="./../../">
-					tam's pizzeria
-				</a>
+<head>
+	<title>
+		Tam's Pizzeria
+	</title>
+	<meta charset="UTF-8">
+	<link rel="canonical" href="http://tams.pizza/articles/pizzeria-christmas/">
+	<meta charset="UTF-8">
+	<meta name='title' property="og:title" content="Snowfall at the facility!" />
+	<meta name='type' property="og:type" content="website" />
+	<meta name='image' property="og:image" content="http://tams.pizza/images/classd_christmas.png" />
+	<meta name='url' property="og:url" content="http://tams.pizza/articles/pizzeria-christmas/" />
+	<meta name='description' property="og:description"
+		content="The staff has brought all their christmas decorations" />
+	<link rel="stylesheet" href="./../../style.css">
+	<style>
+		.fa-snowflake {
+			color: #ecf2f8;
+		}
+
+		.snow {
+			top: 0;
+			left: 0;
+			width: 100vw; /* Full viewport width */
+    		height: 100vh; /* Full viewport height */
+			position: fixed;
+			overflow: hidden;
+		}
+
+		.snowflake {
+			animation-name: fall, shake;
+			animation-duration: 10s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 200px;
+			z-index: 0;
+			filter: blur(0.5px);
+			overflow: hidden;
+		}
+
+		.snowflake1 {
+			animation-name: fall, shake;
+			animation-duration: 10s, 3s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 500px;
+			top: -100px;
+			animation-delay: 1s, 1s;
+			z-index: 1;
+			filter: blur(0.5px);
+		}
+
+		.snowflake2 {
+			animation-name: fall, shake;
+			animation-duration: 8s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 20px;
+			top: -100px;
+			animation-delay: 2s, 2s;
+			z-index: 0;
+			filter: blur(0.5px);
+		}
+
+		.snowflake3 {
+			animation-name: fall, shake;
+			animation-duration: 9s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			right: 170px;
+			top: -100px;
+			animation-delay: 3s, 5s;
+			z-index: 1;
+			filter: blur(0.7px);
+		}
+
+		.snowflake4 {
+			animation-name: fall, shake;
+			animation-duration: 15s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			right: 430px;
+			top: -100px;
+			animation-delay: 4s, 4s;
+			z-index: 0;
+		}
+
+		.snowflake5 {
+			animation-name: fall, shake;
+			animation-duration: 15s, 4s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 500px;
+			top: -100px;
+			animation-delay: 6s, 2s;
+			font-size: 2rem;
+			z-index: 1;
+			filter: blur(0.5px);
+		}
+
+		.snowflake6 {
+			animation-name: fall, shake;
+			animation-duration: 12s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 75px;
+			top: -100px;
+			animation-delay: 3.2s, 2s;
+			font-size: 2rem;
+			z-index: 0;
+		}
+
+		.snowflake7 {
+			animation-name: fall, shake;
+			animation-duration: 11s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 650px;
+			top: -100px;
+			animation-delay: 7.2s, 1s;
+			z-index: 1;
+		}
+
+		.snowflake8 {
+			animation-name: fall, shake;
+			animation-duration: 12s, 4s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 820px;
+			top: -100px;
+			animation-delay: 4s, 2s;
+			font-size: 2rem;
+			z-index: 0;
+			filter: blur(0.5px);
+		}
+
+		.snowflake9 {
+			animation-name: fall, shake;
+			animation-duration: 12s, 4s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 170px;
+			top: -100px;
+			animation-delay: 5s, 2s;
+			font-size: 2rem;
+			z-index: 1;
+			filter: blur(0.3px);
+		}
+
+		.snowflake10 {
+			animation-name: fall, shake;
+			animation-duration: 15s, 9s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 350px;
+			top: -100px;
+			animation-delay: 2.7s, 2s;
+			font-size: 3rem;
+			z-index: 0;
+		}
+
+		.snowflake11 {
+			animation-name: fall, shake;
+			animation-duration: 12s, 7s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			right: 400px;
+			top: -100px;
+			animation-delay: 0.5s, 2s;
+			font-size: 3rem;
+			z-index: 1;
+		}
+
+		.snowflake12 {
+			/*small*/
+			animation-name: fall, shake;
+			animation-duration: 12s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			left: 470px;
+			top: -100px;
+			animation-delay: 5s, 2s;
+			z-index: 0;
+			filter: blur(0.9px);
+		}
+
+		.snowflake13 {
+			/*small*/
+			animation-name: fall, shake;
+			animation-duration: 10s, 5s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			right: 220px;
+			top: -100px;
+			animation-delay: 1s, 2s;
+			z-index: 1;
+			filter: blur(0.6px);
+		}
+
+		.snowflake14 {
+			/*small*/
+			animation-name: fall, shake;
+			animation-duration: 9s, 4s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			position: absolute;
+			right: 140px;
+			top: -100px;
+			animation-delay: 2s, 2s;
+			z-index: 0;
+			filter: blur(0.5px);
+		}
+
+		@keyframes fall {
+			0% {
+				top: -10%;
+			}
+
+			100% {
+				top: 100%;
+			}
+		}
+
+		@keyframes shake {
+			0% {
+				transform: translatex(0);
+			}
+
+			50% {
+				transform: translatex(50px);
+			}
+
+			100% {
+				transform: translatex(0);
+			}
+		}
+	</style>
+	<script src="https://kit.fontawesome.com/901ba758ee.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<section class="snow">
+		<div class="snowflake"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake1"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake2"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake3"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake4"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake5"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake6"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake7"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake8"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake9"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake10"><i class="fa-solid fa-snowflake"></i></div>
+		<div class="snowflake11"><i class="fa-solid fa-snowflake"></i></div>
+		<div class="snowflake12"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake13"><i class="fa-regular fa-snowflake"></i></div>
+		<div class="snowflake14"><i class="fa-regular fa-snowflake"></i></div>
+	</section>
+	<div class="wrap">
+		<div class="top">
+			<span>
+				tam's pizzeria
+			</span>
+		</div>
+
+		<div class="path">
+			<a href="./../../">
+				tam's pizzeria
+			</a>
+		</div>
+		<div class="menu">
+			menu
+			<a href="./../../">
+				back
+			</a>
+			<a href="./../../servers/">
+				servers
+			</a>
+			<a href="./../../meet/">
+				staff
+			</a>
+			<br>
+			<a href="./../../discord/">
+				discord
+			</a>
+			<a href="./../../stats/">
+				stats
+			</a>
+		</div>
+		<div class="content">
+			<div class="contentbox">
+				<div class="content">
+					<div class="contentTitle">
+						The Pizzeria celebrates <b>Christmas!</b>
+					</div>
+				</div>
 			</div>
-            <div class="menu">
-                menu
-                <a href="./../../">
-                    back
-                </a>
-                <a href="./../../servers/">
-                    servers
-                </a>
-                <a href="./../../meet/">
-                    staff
-                </a>
-                <br>
-                <a href="./../../discord/">
-                    discord
-                </a>
-                <a href="./../../stats/">
-                    stats
-                </a>
-            </div>
-			<div class="content">
-				<div class="contentbox">
-					<div class="content">
-						<div class="contentTitle">
-							The Pizzeria celebrates <b>Christmas!</b>
-						</div>
-					</div>
-				</div>
-				<div class="contentbox">
-					<div class="content">
-						<p>
-							<br>
-							❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️
-							<br><br><br>
-							It's that time of year again and the Pizzeria invites all its regular customers for a celebration!
-							<br><br><br><br><br>
-							The facility invites you and your friends for some well deserved christmas cookies, presents and fun!
-							<br><br><br><br>
-							☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃
-						</p>
-					</div>
-					<img src="./../../images/dboy-christmas.gif" alt="DBoy Christmas Spirit" width="250/">
-				</div>
-				<div class="contentbox">
-					<div class="contentred">
-						Beware, santa's workers has had enough and are roaming the facility tirsty for blood.
-					</div>
-				</div>
-				<div class="contentbox">
-					<div class="content">
+			<div class="contentbox">
+				<div class="content">
+					<p>
 						<br>
-							Here is the schedule for the holidays:
-							<ul>
-								<li><p>22.12 - Facility decoration preparations begin, NTF airdrops equipment</p></li>
-								<li><p>23.12 - Chaos Insurgency arrives with the Polar Express</p></li>
-								<li><p>24.12 - Day Off! Go home and celebrate!</p></li>
-								<li><p>25.12 - Facility manager ████ Ar. Korat does his yearly speech, christmas tree is lit</p></li>
-								<li><p>26.12 - Gift giving and opening session</p></li>
-								<li><p>27.12 - Assistant Lieut. ████ K. Evtonped seminar concerning elevator grenade safety</p></li>
-								<li><p>28.12 - Yearly snowman building contest</p></li>
-								<li><p>29.12 - Open day, free christmas pizza will be served</p></li>
-								<li><p>30.12 - 05 representatives does an appearance and congratulates the Pizzeria</p></li>
-								<li><p>31.12 - Fireworks show! Commander ████ B. Obbas puts on the best display</p></li>
-								<li><p>01.01 - Back to work!</p></li>
-							</ul>
-					</div>
+						❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️
+						<br><br><br>
+						It's that time of year again and the Pizzeria invites all its regular customers for a
+						celebration!
+						<br><br><br><br><br>
+						The facility invites you and your friends for some well deserved christmas cookies, presents and
+						fun!
+						<br><br><br><br>
+						☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃☃
+					</p>
 				</div>
-				<div class="contentbox">
-					<div class="content">
-						<p>
-							A note from the 05 council:
-						<br><br>
-							All the staff from the Pizzeria wish you happy holidays and hope you've enjoyed your stay this far!
-							<br>
-							The Pizzeria is purely community-driven and would not exist if it weren't for you guys. It's an honour to be apart of it all.
-						<br><br>
-							Stay tuned for more shennanigans and pizza!
-
-							<br><br>-05 Council.
-						</p>
-					</div>
-					<img src="./../../images/classd_christmas.png" alt="Christmas D Boy" width="200/">
+				<img src="./../../images/dboy-christmas.gif" alt="DBoy Christmas Spirit" width="250/">
+			</div>
+			<div class="contentbox">
+				<div class="contentred">
+					Beware, santa's workers has had enough and are roaming the facility tirsty for blood.
 				</div>
-				<div class="contentbox">
-					<div class="content">
-						<div class="contentTitle">
-							In other news
-						</div>
+			</div>
+			<div class="contentbox">
+				<div class="content">
+					<br>
+					Here is the schedule for the holidays:
+					<ul>
+						<li>
+							<p>22.12 - Facility decoration preparations begin, NTF airdrops equipment</p>
+						</li>
+						<li>
+							<p>23.12 - Chaos Insurgency arrives with the Polar Express</p>
+						</li>
+						<li>
+							<p>24.12 - Day Off! Go home and celebrate!</p>
+						</li>
+						<li>
+							<p>25.12 - Facility manager ████ Ar. Korat does his yearly speech, christmas tree is lit</p>
+						</li>
+						<li>
+							<p>26.12 - Gift giving and opening session</p>
+						</li>
+						<li>
+							<p>27.12 - Assistant Lieut. ████ K. Evtonped seminar concerning elevator grenade safety</p>
+						</li>
+						<li>
+							<p>28.12 - Yearly snowman building contest</p>
+						</li>
+						<li>
+							<p>29.12 - Open day, free christmas pizza will be served</p>
+						</li>
+						<li>
+							<p>30.12 - 05 representatives does an appearance and congratulates the Pizzeria</p>
+						</li>
+						<li>
+							<p>31.12 - Fireworks show! Commander ████ B. Obbas puts on the best display</p>
+						</li>
+						<li>
+							<p>01.01 - Back to work!</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="contentbox">
+				<div class="content">
+					<p>
+						A note from the 05 council:
+						<br><br>
+						All the staff from the Pizzeria wish you happy holidays and hope you've enjoyed your stay this
+						far!
+						<br>
+						The Pizzeria is purely community-driven and would not exist if it weren't for you guys. It's an
+						honour to be apart of it all.
+						<br><br>
+						Stay tuned for more shennanigans and pizza!
 
-						<p><br>
-							This just in! <br></br>Freak <b>Cake Monster</b> destroys site 41. Unknown SCP ingredients involved.
-							<br><br>
-							<p style="font-size:15px;">Recipe and instructions on how to make one yourself will follow in the coming days!
-						</p>
-						<div class="author">
-							<br><br><i>
-								Evan, 22.12.2020
-							</i>
-						</div>
+						<br><br>-05 Council.
+					</p>
+				</div>
+				<img src="./../../images/classd_christmas.png" alt="Christmas D Boy" width="200/">
+			</div>
+			<div class="contentbox">
+				<div class="content">
+					<div class="contentTitle">
+						In other news
+					</div>
+
+					<p><br>
+						This just in! <br></br>Freak <b>Cake Monster</b> destroys site 41. Unknown SCP ingredients
+						involved.
+						<br><br>
+					<p style="font-size:15px;">Recipe and instructions on how to make one yourself will follow in the
+						coming days!
+					</p>
+					<div class="author">
+						<br><br><i>
+							Evan, 22.12.2020
+						</i>
 					</div>
 				</div>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>
