@@ -1,75 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pizzeria Articles</title>
-    <link rel="stylesheet" href="./../style.css" />
-    <link
-      rel="shortcut icon"
-      href=""
-      type="image/x-icon"
-    />
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-      }
 
-      body {
-        display: table;
-      }
+<head>
+  <title>Pizzeria Articles</title>
+  <link rel="stylesheet" href="./../style.css" />
+  <link rel="shortcut icon" href="" type="image/x-icon" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
 
-      .centered-text {
-        text-align: center;
-        display: table-cell;
-        vertical-align: middle;
-      }
-    </style>
-  </head>
+    body {
+      display: table;
+    }
 
-  <body>
-    <div class="centered-text">
-      <h1>Pizzeria<br>Articles</h1>
-    </div>
-    <script defer>
-      function setCookie(name, val, days, path) {
-        var cookie = name + "=" + escape(val) + "";
-        if (days) {
-          var date = new Date();
-          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-          cookie += ";expires=" + date.toGMTString();
-        }
-        cookie += "domain=/;path=/articles/";
-        console.log(cookie);
-        document.cookie = cookie;
-      }
+    .centered-text {
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      z-index: 8;
+      color: whitesmoke;
+    }
+  </style>
+</head>
 
-      function getCookie(name) {
-        var setPos = document.cookie.indexOf(name + "="),
-          stopPos = document.cookie.indexOf(";", setPos);
-        return !~setPos
-          ? null
-          : document.cookie
-              .substring(setPos, ~stopPos ? stopPos : undefined)
-              .split("=")[1];
+<body>
+	<div class="back"></div>
+	<div class="static"></div>
+  <div class="centered-text">
+    <h1>Pizzeria<br>Articles</h1>
+  </div>
+  <script defer>
+    function setCookie(name, val, days, path) {
+      var cookie = name + "=" + escape(val) + "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        cookie += ";expires=" + date.toGMTString();
       }
+      cookie += "domain=/;path=/articles/";
+      console.log(cookie);
+      document.cookie = cookie;
+    }
 
-      let ps_cook = getCookie("ps");
-      //console.log("ps_cook: " + ps_cook);
-      if (!ps_cook || ps_cook == "null" || ps_cook == "") {
-        window.addEventListener("load", function () {
-          //console.log("ps_cook: " + ps_cook);
-            //console.log("Input");
-            let ps = btoa(prompt("Please enter password", "Password"));
-            setCookie("ps", ps, 7);
-          //console.log("Redir");
-          window.location = "./list.php";
-        });
-      } else {
+    function getCookie(name) {
+      var setPos = document.cookie.indexOf(name + "="),
+        stopPos = document.cookie.indexOf(";", setPos);
+      return !~setPos
+        ? null
+        : document.cookie
+          .substring(setPos, ~stopPos ? stopPos : undefined)
+          .split("=")[1];
+    }
+
+    let ps_cook = getCookie("ps");
+    //console.log("ps_cook: " + ps_cook);
+    if (!ps_cook || ps_cook == "null" || ps_cook == "") {
+      window.addEventListener("load", function () {
+        //console.log("ps_cook: " + ps_cook);
+        //console.log("Input");
+        let ps = btoa(prompt("Please enter password", "Password"));
+        setCookie("ps", ps, 7);
+        //console.log("Redir");
         window.location = "./list.php";
-      }
-    </script>
-  </body>
+      });
+    } else {
+      window.location = "./list.php";
+    }
+  </script>
+</body>
+
 </html>
