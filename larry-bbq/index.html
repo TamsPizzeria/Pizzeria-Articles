@@ -8,7 +8,7 @@
 	<meta name="type" property="og:type" content="website" />
 	<meta name="image" property="og:image" content="http://tams.pizza/articles/larry-bbq/bbq.png" />
 	<meta name='url' property="og:url" content="http://tams.pizza/articles/larry-bbq/" />
-	<meta name='description' property="og:description" content="Join Larry next Friday June 19 at 18:00 CEST for a mysterious and sticky BBQ basement rub-down." />
+	<meta name='description' property="og:description" content="Join Larry every Friday at 18:00 CEST for a mysterious and sticky BBQ basement rub-down." />
 	<meta property="article:published_time" content="2026-06-12" />
 	<meta name="author" content="Evan" />
 	<meta name="theme-color" content="#4b2e0e">
@@ -16,7 +16,7 @@
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content="http://tams.pizza/articles/larry-bbq/" />
 	<meta property="twitter:title" content="Larry (aka SCP-106) invites you to a BBQ basement rub-down" />
-	<meta property="twitter:description" content="Join Larry next Friday June 19 at 18:00 CEST for a mysterious and sticky BBQ basement rub-down." />
+	<meta property="twitter:description" content="Join Larry every Friday at 18:00 CEST for a mysterious and sticky BBQ basement rub-down." />
 	<meta property="twitter:image" content="http://tams.pizza/articles/larry-bbq/bbq.png" />
 
 
@@ -186,8 +186,7 @@
 						<div class="a"></div>
 						<br>
 						<p style="text-align:left;">
-							Next Friday, June 19 at 18:00 CEST, everyone is welcome to return to the facility for a very special
-							BBQ basement rub-down hosted by Larry, also known as SCP-106. The rumor mill is already full of
+							On <strong><span id="event-date-label">Friday, July 3</span></strong> at 18:00 CEST, everyone is welcome to return to the facility for Larry's recurring Friday BBQ basement rub-down, hosted by Larry, also known as SCP-106. The rumor mill is already full of
 							details about his famous BBQ sauce, and this event promises to be equal parts delicious and
 							dangerous.
 						</p>
@@ -238,7 +237,7 @@
 							old canisters, and something that definitely did not come from the kitchen. The exact recipe is
 							unknown, but the results are unmistakable.
 							<br><br>
-							If you want to know more, come back to the facility on Friday, June 19 at 18 CEST and see for
+							If you want to know more, come back to the facility on the next Friday at 18:00 CEST and see for
 							yourself.
 						</p>
 						<p style="font-size:15px;">
@@ -259,14 +258,23 @@
 		</div>
 	</div>
 	<script defer>
-		const targetTime = new Date("2026-06-19T18:00:00+02:00");
 		const dayEl = document.getElementById("countdown-days");
 		const hourEl = document.getElementById("countdown-hours");
 		const minuteEl = document.getElementById("countdown-minutes");
 		const secondEl = document.getElementById("countdown-seconds");
+		const dateLabelEl = document.getElementById("event-date-label");
+		let targetTime = null;
 
 		function formatUnit(value) {
 			return value.toString().padStart(2, "0");
+		}
+
+		function formatEventDate(date) {
+			return date.toLocaleDateString("en-GB", {
+				weekday: "long",
+				month: "long",
+				day: "numeric"
+			});
 		}
 
 		function animateFlip(el) {
@@ -275,15 +283,56 @@
 			//setTimeout(() => card.classList.remove("flip"), 250);
 		}
 
+		function getNextFridayAt1800(now) {
+			const nextFriday = new Date(now);
+			const currentDay = nextFriday.getDay();
+			const currentHour = nextFriday.getHours();
+			let daysUntilFriday = (5 - currentDay + 7) % 7;
+
+			if (daysUntilFriday === 0 && (currentHour > 18 || (currentHour === 18 && nextFriday.getMinutes() >= 0))) {
+				daysUntilFriday = 7;
+			}
+
+			nextFriday.setDate(nextFriday.getDate() + daysUntilFriday);
+			nextFriday.setHours(18, 0, 0, 0);
+			return nextFriday;
+		}
+
+		function setCountdownZeros() {
+			dayEl.innerText = "00";
+			hourEl.innerText = "00";
+			minuteEl.innerText = "00";
+			secondEl.innerText = "00";
+		}
+
 		function updateCountdown() {
 			const now = new Date();
-			const diff = targetTime - now;
+			const nextDayMidnight = new Date(now);
+			nextDayMidnight.setHours(24, 0, 0, 0);
 
+			if (!targetTime) {
+				targetTime = getNextFridayAt1800(now);
+			}
+
+			const sameDayAsTarget = targetTime.getFullYear() === now.getFullYear() && targetTime.getMonth() === now.getMonth() && targetTime.getDate() === now.getDate();
+
+			if (sameDayAsTarget && now >= targetTime && now < nextDayMidnight) {
+				setCountdownZeros();
+				if (dateLabelEl && targetTime) {
+					dateLabelEl.innerText = formatEventDate(targetTime);
+				}
+				return;
+			}
+
+			if (targetTime <= now) {
+				targetTime = getNextFridayAt1800(now);
+			}
+
+			dateLabelEl.innerText = formatEventDate(targetTime);
+
+			const diff = targetTime - now;
 			if (diff <= 0) {
-				dayEl.innerText = "00";
-				hourEl.innerText = "00";
-				minuteEl.innerText = "00";
-				secondEl.innerText = "00";
+				setCountdownZeros();
 				return;
 			}
 
