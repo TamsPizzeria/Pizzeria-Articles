@@ -1,6 +1,6 @@
 # Writing Guide for Pizzeria Articles
 
-This file is aimed at anyone — human or AI agent — who is creating a new article for [tams.pizza/articles](http://tams.pizza/articles/).
+This file is aimed at anyone — human or AI agent — who is creating a new article for [tams.pizza/articles](https://tams.pizza/articles/).
 
 ---
 
@@ -120,8 +120,8 @@ CSS helper classes available inside content boxes:
 <meta charset="UTF-8">
 <meta name="title"       property="og:title"       content="Engaging OG Title" />
 <meta name="type"        property="og:type"         content="website" />
-<meta name="image"       property="og:image"        content="http://tams.pizza/articles/<slug>/<image.png>" />
-<meta name="url"         property="og:url"          content="http://tams.pizza/articles/<slug>/" />
+<meta name="image"       property="og:image"        content="https://tams.pizza/articles/<slug>/<image.png>" />
+<meta name="url"         property="og:url"          content="https://tams.pizza/articles/<slug>/" />
 <meta name="description" property="og:description"  content="One-sentence teaser." />
 <meta property="article:published_time" content="YYYY-MM-DD" />
 <meta name="author"      content="Evan">
@@ -131,7 +131,7 @@ For articles published from mid-2025 onwards, also add Twitter/X card tags (see 
 
 When the article is **ready to publish**:
 - Remove `<meta name="robots" content="noindex,nofollow">` (present in the template for drafts).
-- Uncomment and fix `<link rel="canonical" href="http://tams.pizza/articles/<slug>/">`.
+- Uncomment and fix `<link rel="canonical" href="https://tams.pizza/articles/<slug>/">`.
 
 ---
 
