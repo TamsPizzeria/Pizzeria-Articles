@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +36,7 @@
 	<meta property="article:published_time" content="2026-09-04" />
 	<meta name="author" content="Evan">
 	<link rel="canonical" href="https://tams.pizza/articles/ballincident-investigation/">
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<script src="/js/static-perf-checker.js" defer></script>
 	<style>
 		/* Article-local formatting overrides. The shared /style.css remains untouched. */
@@ -169,20 +174,11 @@
 	<div class="logo"></div>
 	<div class="static"></div>
 	<div class="wrap">
-		<div class="top">
-			<span>tam's pizzeria</span>
-		</div>
-
-		<div class="path">
-			<a href="/">home</a>
-			&gt;
-			<a href="/articles/">Articles</a>
-			&gt;
-			<a>Ball Incident Investigation</a>
-		</div>
-
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => 'Ball Incident Investigation'],
+		]); ?>
 
 		<div class="content">
 			<div class="contentbox">

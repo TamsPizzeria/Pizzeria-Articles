@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <html>
 
 <head>
@@ -12,7 +17,7 @@
 	<meta name='description' property="og:description" content="Read the story for an exiting and tasty twist!" />
 	<meta property="article:published_time" content="2018-05-03" />
 	<link rel="canonical" href="https://tams.pizza/articles/106nerf/">
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<style>
 		div.a {
 			background-repeat: no-repeat;
@@ -85,21 +90,11 @@
 	<div class="logo"></div>
 	<div class="static"></div>
 	<div class="wrap">
-		<div class="top">
-			<span>
-				tam's pizzeria
-			</span>
-		</div>
-
-		<div class="path">
-			<a href="/">home</a>
-			>
-			<a href="">Articles</a>
-			>
-			<a>106 Nerf</a>
-		</div>
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => '106 Nerf'],
+		]); ?>
 		<div class="content">
 			<div class="contentbox">
 				<div class="content">

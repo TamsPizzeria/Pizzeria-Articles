@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <html>
 
 <head>
@@ -10,7 +15,7 @@
 	<meta name='description' property="og:description" content="Did someone download something they shouldn't have?" />
 	<meta property="article:published_time" content="2019-07-12" />
 	<link rel="canonical" href="https://tams.pizza/articles/079-incident/">
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<script src="/js/static-perf-checker.js" defer></script>
 </head>
 
@@ -19,21 +24,11 @@
 	<div class="logo"></div>
 	<div class="static"></div><div class="static"></div><div class="static"></div>
 	<div class="wrap">
-		<div class="top">
-			<span>
-				tam's pizzeria
-			</span>
-		</div>
-
-		<div class="path">
-			<a href="/">home</a>
-			>
-			<a href="">Articles</a>
-			>
-			<a>079 Incident</a>
-		</div>
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => '079 Incident'],
+		]); ?>
 		<div class="content">
 			<div class="contentbox">
 				<div class="content">

@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <html>
 
 <head>
@@ -13,7 +18,7 @@
 	<meta name='url' property="og:url" content="https://tams.pizza/articles/scp500/" />
 	<meta name='description' property="og:description" content="Reports of the new drug SCP-500 sweeps through the facility" />
 	<meta property="article:published_time" content="2018-05-04" />
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<style>
 		img {
 			box-shadow: 0px 0px 25px 25px rgba(55, 54, 51, 1);
@@ -27,21 +32,11 @@
 	<div class="logo"></div>
 	<div class="static"></div>
 	<div class="wrap">
-		<div class="top">
-			<span>
-				tam's pizzeria
-			</span>
-		</div>
-
-		<div class="path">
-			<a href="/">home</a>
-			>
-			<a href="">Articles</a>
-			>
-			<a>SCP-500</a>
-		</div>
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => 'SCP-500'],
+		]); ?>
 		<div class="content">
 			<div class="contentbox">
 				<div class="content">

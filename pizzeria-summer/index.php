@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <html>
 
 <head>
@@ -10,7 +15,7 @@
 	<meta name='description' property="og:description" content="Scientists and DBois have been spotted having a good time" />
 	<meta property="article:published_time" content="2023-06-09" />
 	<link rel="canonical" href="https://tams.pizza/articles/pizzeria-summer/">
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<script src="/js/static-perf-checker.js" defer></script>
 </head>
 
@@ -19,20 +24,11 @@
 	<div class="logo"></div>
 	<div class="static"></div>
 	<div class="wrap">
-		<div class="top">
-			<span>
-				tam's pizzeria
-			</span>
-		</div>
-		<div class="path">
-			<a href="/">home</a>
-			>
-			<a href="">Articles</a>
-			>
-			<a>Pizzeria Beach Party</a>
-		</div>
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => 'Pizzeria Beach Party'],
+		]); ?>
 		<div class="content">
 			<div class="contentbox">
 				<div class="content">

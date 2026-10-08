@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +26,7 @@
     <meta property="twitter:description" content="Read the shocking report of an espresso machine rebellion." />
     <meta property="twitter:image" content="https://tams.pizza/articles/espresso-uprising/machine.png" />
 
-    <link rel="stylesheet" href="/style.css?v3">
+    <link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
     <script src="/js/static-perf-checker.js" defer></script>
     <!-- Page-specific expansions -->
     <style>
@@ -80,15 +85,11 @@
     <div class="logo"></div>
     <div class="static"></div>
     <div class="wrap">
-        <div class="top">
-            <span>tam's pizzeria</span>
-        </div>
-
-        <div class="path">
-            <a href="/">home</a> &gt; <a href="/articles/">Articles</a> &gt; <a>Espresso Uprising</a>
-        </div>
-        <side-menu></side-menu>
-        <script src="/js/side-menu.js" defer></script>
+        <?php render_site_header("tam's pizzeria", [
+            ['label' => 'home', 'href' => '/'],
+            ['label' => 'Articles', 'href' => '/articles/'],
+            ['label' => 'Espresso Uprising'],
+        ]); ?>
 
         <div class="content">
             <!-- Header block -->

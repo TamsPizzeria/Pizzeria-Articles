@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <html>
 
 <head>
@@ -11,7 +16,7 @@
 		content="Strange events at pizzeria terrorize locals of small town. Read the leaked reports!" />
 	<meta property="article:published_time" content="2024-08-11" />
 	<link rel="canonical" href="https://tams.pizza/articles/strange-event/">
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<script src="/js/static-perf-checker.js" defer></script>
 </head>
 
@@ -20,20 +25,11 @@
 	<div class="logo"></div>
 	<div class="static"></div>
 	<div class="wrap">
-		<div class="top">
-			<span>tam's Pizzeria</span>
-		</div>
-
-		<div class="path">
-			<a href="/">home</a>
-			>
-			<a href="">Articles</a>
-			>
-			<a>Strange Incident</a>
-		</div>
-
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => 'Strange Event'],
+		]); ?>
 
 		<div class="content">
 			<div class="contentbox">

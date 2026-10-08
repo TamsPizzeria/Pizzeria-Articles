@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +26,7 @@
     <meta property="twitter:description" content="Read the report of a rogue drone unleashing pizzas over the site." />
     <meta property="twitter:image" content="https://tams.pizza/articles/pizzadrone/drone.png" />
 
-    <link rel="stylesheet" href="/style.css?v3">
+    <link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
     <script src="/js/static-perf-checker.js" defer></script>
 </head>
 
@@ -30,15 +35,11 @@
     <div class="logo"></div>
     <div class="static"></div>
     <div class="wrap">
-        <div class="top">
-            <span>tam's pizzeria</span>
-        </div>
-
-        <div class="path">
-            <a href="/">home</a> &gt; <a href="">Articles</a> &gt; <a>Drone Pizza Breach</a>
-        </div>
-        <side-menu></side-menu>
-        <script src="/js/side-menu.js" defer></script>
+        <?php render_site_header("tam's pizzeria", [
+            ['label' => 'home', 'href' => '/'],
+            ['label' => 'Articles', 'href' => '/articles/'],
+            ['label' => 'Pizza Drone'],
+        ]); ?>
 
         <div class="content">
             <div class="contentbox">

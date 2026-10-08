@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <html>
 
 <head>
@@ -20,7 +25,7 @@
 	<meta property="twitter:image" content="https://tams.pizza/articles/larry-bbq/bbq.png" />
 
 
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<style>
 		div.a {
 			background-repeat: no-repeat;
@@ -147,21 +152,11 @@
 	<div class="logo"></div>
 	<div class="static"></div>
 	<div class="wrap">
-		<div class="top">
-			<span>
-				tam's pizzeria
-			</span>
-		</div>
-
-		<div class="path">
-			<a href="/">home</a>
-			>
-			<a href="">Articles</a>
-			>
-			<a>Larry's BBQ Basement Rub-Down</a>
-		</div>
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => 'Larry BBQ'],
+		]); ?>
 		<div class="content">
 			<div class="contentbox">
 				<div class="content">

@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/siteHeader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/assets.php';
+admin_start_session();
+?>
 <html>
 
 <head>
@@ -13,7 +18,7 @@
 	<meta name='url' property="og:url" content="https://tams.pizza/articles/pizzeria-christmas/" />
 	<meta name='description' property="og:description" content="The staff has brought all their christmas decorations" />
 	<meta property="article:published_time" content="2020-12-22" />
-	<link rel="stylesheet" href="/style.css?v3">
+	<link rel="stylesheet" href="<?= htmlspecialchars(site_asset_url('/style.css'), ENT_QUOTES, 'UTF-8') ?>">
 	<style>
 		.fa-snowflake {
 			color: #ecf2f8;
@@ -278,21 +283,11 @@
 		<div class="snowflake14"><i class="fa-regular fa-snowflake"></i></div>
 	</section>
 	<div class="wrap">
-		<div class="top">
-			<span>
-				tam's pizzeria
-			</span>
-		</div>
-
-		<div class="path">
-			<a href="/">home</a>
-			>
-			<a href="">Articles</a>
-			>
-			<a>Facility Christmas!</a>
-		</div>
-		<side-menu></side-menu>
-		<script src="/js/side-menu.js" defer></script>
+		<?php render_site_header("tam's pizzeria", [
+			['label' => 'home', 'href' => '/'],
+			['label' => 'Articles', 'href' => '/articles/'],
+			['label' => 'Facility Christmas!'],
+		]); ?>
 		<div class="content">
 			<div class="contentbox">
 				<div class="content">
